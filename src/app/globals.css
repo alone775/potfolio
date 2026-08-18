@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #050505;
+    --foreground: #f3f4f6;
+    --primary: #3b82f6;
+    --primary-glow: rgba(59, 130, 246, 0.5);
+    --secondary: #8b5cf6;
+    --card-bg: rgba(20, 20, 20, 0.4);
+    --card-border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Scroll-driven animations (Modern Web standard) */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scroll-reveal {
+  /* Using view() for scroll-driven animations. Polyfill/Fallback handled via normal CSS if not supported. */
+  animation: fade-in-up linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 30%;
+}
+
+@supports not (animation-timeline: view()) {
+  .scroll-reveal {
+    /* Fallback for older browsers: just fade in or use framer-motion */
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
