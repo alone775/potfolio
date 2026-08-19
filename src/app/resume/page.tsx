@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import profilePic from "../../../public/profile.jpg";
+import profilePic from "../../../public/original_photo.jpg";
 import { Mail, Printer } from "lucide-react";
 
 export default function ResumePage() {
@@ -25,7 +25,7 @@ export default function ResumePage() {
         {/* Inner subtle border for the vintage look */}
         <div className="absolute inset-2 border border-[#c94a3a]/30 rounded-lg pointer-events-none print:hidden"></div>
 
-        <div className="p-12">
+        <div className="p-8 md:p-12">
           
           {/* HEADER */}
           <header className="flex flex-col md:flex-row gap-8 items-center md:items-start mb-12">
@@ -65,11 +65,11 @@ export default function ResumePage() {
             <section>
               <h2 className="text-2xl font-bold uppercase text-[#c94a3a] mb-6 tracking-wider" style={{ fontFamily: "Impact, sans-serif, 'Arial Narrow'" }}>Experience</h2>
               
-              <div className="relative border-l-2 border-[#c94a3a] ml-4 space-y-6">
+              <div className="relative border-l-2 border-[#c94a3a] ml-24 md:ml-28 space-y-8">
                 
                 <div className="relative pl-8">
                   <div className="absolute -left-[9px] top-1.5 w-4 h-4 bg-[#fdfbf7] border-2 border-[#c94a3a] rounded-full"></div>
-                  <div className="absolute -left-20 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-16 text-right">
+                  <div className="absolute -left-24 md:-left-28 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-20 md:w-24 text-right pr-2">
                     PRESENT
                   </div>
                   <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">LEAD DEVELOPER, CUETRACK</h3>
@@ -81,6 +81,9 @@ export default function ResumePage() {
 
                 <div className="relative pl-8">
                   <div className="absolute -left-[9px] top-1.5 w-4 h-4 bg-[#fdfbf7] border-2 border-[#c94a3a] rounded-full"></div>
+                  <div className="absolute -left-24 md:-left-28 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-20 md:w-24 text-right pr-2">
+                    2023
+                  </div>
                   <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">FULL STACK ENGINEER, VALIDTRACE</h3>
                   <p className="text-[13px] leading-relaxed">
                     Built a modern verification and tracking system completely with TypeScript and React.js. 
@@ -90,6 +93,9 @@ export default function ResumePage() {
 
                 <div className="relative pl-8">
                   <div className="absolute -left-[9px] top-1.5 w-4 h-4 bg-[#fdfbf7] border-2 border-[#c94a3a] rounded-full"></div>
+                  <div className="absolute -left-24 md:-left-28 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-20 md:w-24 text-right pr-2">
+                    2022
+                  </div>
                   <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">SOFTWARE ENGINEER, INLINE DELIVERY</h3>
                   <p className="text-[13px] leading-relaxed">
                     Engineered a robust delivery tracking system in Java offering both Terminal-based and GUI operational modes.
@@ -103,11 +109,11 @@ export default function ResumePage() {
             <section>
               <h2 className="text-2xl font-bold uppercase text-[#c94a3a] mb-6 tracking-wider" style={{ fontFamily: "Impact, sans-serif, 'Arial Narrow'" }}>Education</h2>
               
-              <div className="relative border-l-2 border-[#c94a3a] ml-4 space-y-6">
+              <div className="relative border-l-2 border-[#c94a3a] ml-24 md:ml-28 space-y-8">
                 
                 <div className="relative pl-8">
                   <div className="absolute -left-[9px] top-1.5 w-4 h-4 bg-[#fdfbf7] border-2 border-[#c94a3a] rounded-full"></div>
-                  <div className="absolute -left-20 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-16 text-right">
+                  <div className="absolute -left-24 md:-left-28 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-20 md:w-24 text-right pr-2">
                     ONGOING
                   </div>
                   <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">BACHELOR OF SCIENCE IN COMPUTER SCIENCE</h3>
@@ -118,6 +124,9 @@ export default function ResumePage() {
 
                 <div className="relative pl-8">
                   <div className="absolute -left-[9px] top-1.5 w-4 h-4 bg-[#fdfbf7] border-2 border-[#c94a3a] rounded-full"></div>
+                  <div className="absolute -left-24 md:-left-28 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-20 md:w-24 text-right pr-2">
+                    2021
+                  </div>
                   <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">FSC PRE-ENGINEERING</h3>
                   <p className="text-[13px] leading-relaxed">
                     Punjab Group of Colleges. Built a strong foundational understanding in mathematics and sciences.
