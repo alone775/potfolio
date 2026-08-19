@@ -2,6 +2,7 @@ import Canvas3D from "@/components/Canvas3D";
 import ProjectCard from "@/components/ProjectCard";
 import { Mail, FileText, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const GithubIcon = ({ size = 24 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -32,6 +33,16 @@ export default function Home() {
         <div className="max-w-4xl w-full mx-auto flex flex-col items-center text-center z-10 scroll-reveal">
           <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-sm font-medium text-gray-300">
             Available for new opportunities
+          </div>
+          
+          <div className="mb-8 relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl shadow-primary/20">
+            <Image 
+              src="/profile.jpg" 
+              alt="Abdul Wasay Minhas" 
+              fill 
+              className="object-cover hover:scale-105 transition-transform duration-500"
+              priority
+            />
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white to-gray-500">
