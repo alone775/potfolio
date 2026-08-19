@@ -3,6 +3,7 @@ import ProjectCard from "@/components/ProjectCard";
 import { Mail, FileText, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import profilePic from "../../public/profile.jpg";
 
 const GithubIcon = ({ size = 24 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -37,7 +38,7 @@ export default function Home() {
           
           <div className="mb-8 relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl shadow-primary/20">
             <Image 
-              src="/profile.jpg" 
+              src={profilePic} 
               alt="Abdul Wasay Minhas" 
               fill 
               className="object-cover hover:scale-105 transition-transform duration-500"

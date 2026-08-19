@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import profilePic from "../../../public/profile.jpg";
 import { Mail, Printer } from "lucide-react";
 
 export default function ResumePage() {
@@ -31,7 +32,7 @@ export default function ResumePage() {
             {/* Profile Picture */}
             <div className="w-32 h-32 rounded-full overflow-hidden border-[3px] border-[#c94a3a] shrink-0 relative shadow-md">
               <Image 
-                src="/profile.jpg" 
+                src={profilePic} 
                 alt="Abdul Wasay Minhas" 
                 fill 
                 className="object-cover"
