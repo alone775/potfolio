@@ -48,7 +48,7 @@ export default function ResumePage() {
               </h1>
               
               <div className="text-sm font-semibold tracking-wide text-[#c94a3a] mb-4 uppercase">
-                Islamabad, PK | wasayminhas775@gmail.com | github.com/alone775
+                Islamabad, PK | wasayminhas775@gmail.com | github.com/alone775 | ALONE775.GITHUB.IO/POTFOLIO
               </div>
               
               <p className="text-[13px] leading-relaxed font-medium">
@@ -56,26 +56,29 @@ export default function ResumePage() {
                 Strong background in Next.js, React, and robust backend systems. Dedicated to delivering non-generic user experiences 
                 and translating complex Machine Learning concepts into practical web solutions.
               </p>
+              <p className="text-[13px] leading-relaxed font-medium italic mt-2 text-[#c94a3a]">
+                Currently focused on scaling CueTrack from independent project to production-ready platform — actively seeking pilot venues and freelance opportunities.
+              </p>
             </div>
           </header>
 
           <div className="space-y-8">
             
-            {/* EXPERIENCE */}
+            {/* PROJECTS */}
             <section>
-              <h2 className="text-2xl font-bold uppercase text-[#c94a3a] mb-6 tracking-wider" style={{ fontFamily: "Impact, sans-serif, 'Arial Narrow'" }}>Experience</h2>
+              <h2 className="text-2xl font-bold uppercase text-[#c94a3a] mb-6 tracking-wider" style={{ fontFamily: "Impact, sans-serif, 'Arial Narrow'" }}>Projects</h2>
               
               <div className="relative border-l-2 border-[#c94a3a] ml-24 md:ml-28 space-y-8">
                 
                 <div className="relative pl-8">
                   <div className="absolute -left-[9px] top-1.5 w-4 h-4 bg-[#fdfbf7] border-2 border-[#c94a3a] rounded-full"></div>
                   <div className="absolute -left-24 md:-left-28 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-20 md:w-24 text-right pr-2">
-                    PRESENT
+                    IN PROGRESS
                   </div>
-                  <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">LEAD DEVELOPER, CUETRACK</h3>
+                  <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">CUETRACK — Snooker Club Management Platform</h3>
+                  <div className="inline-block px-2 py-0.5 mb-2 bg-[#c94a3a]/10 text-[#c94a3a] text-[10px] font-bold rounded-full uppercase tracking-wider border border-[#c94a3a]/20">Independent Project · Seeking Pilot Venues</div>
                   <p className="text-[13px] leading-relaxed">
-                    Architected a professional snooker club management platform with global Elo rankings. 
-                    Implemented real-time tournament tracking, active session monitoring, and deep club analytics.
+                    Architected a professional snooker club management platform with global Elo rankings, real-time tournament tracking, active session monitoring, and deep club analytics. Currently in active development — building toward production readiness and onboarding a first pilot venue.
                   </p>
                 </div>
 
@@ -84,10 +87,10 @@ export default function ResumePage() {
                   <div className="absolute -left-24 md:-left-28 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-20 md:w-24 text-right pr-2">
                     2023
                   </div>
-                  <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">FULL STACK ENGINEER, VALIDTRACE</h3>
+                  <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">VALIDTRACE — Verification & Tracking System</h3>
+                  <div className="inline-block px-2 py-0.5 mb-2 bg-[#c94a3a]/10 text-[#c94a3a] text-[10px] font-bold rounded-full uppercase tracking-wider border border-[#c94a3a]/20">Independent Project</div>
                   <p className="text-[13px] leading-relaxed">
-                    Built a modern verification and tracking system completely with TypeScript and React.js. 
-                    Designed a scalable data-tracing backbone to ensure reliability and transparency.
+                    Built a modern verification and tracking system using TypeScript and React.js. Designed a scalable data-tracing backbone to ensure reliability and transparency.
                   </p>
                 </div>
 
@@ -96,9 +99,10 @@ export default function ResumePage() {
                   <div className="absolute -left-24 md:-left-28 top-1 text-xs font-bold text-[#c94a3a] tracking-widest uppercase w-20 md:w-24 text-right pr-2">
                     2022
                   </div>
-                  <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">SOFTWARE ENGINEER, INLINE DELIVERY</h3>
+                  <h3 className="font-bold text-base uppercase text-[#c94a3a] tracking-wider mb-1">INLINE DELIVERY — Delivery Tracking System</h3>
+                  <div className="inline-block px-2 py-0.5 mb-2 bg-[#c94a3a]/10 text-[#c94a3a] text-[10px] font-bold rounded-full uppercase tracking-wider border border-[#c94a3a]/20">Independent Project</div>
                   <p className="text-[13px] leading-relaxed">
-                    Engineered a robust delivery tracking system in Java offering both Terminal-based and GUI operational modes.
+                    Engineered a robust delivery tracking system in Java, offering both terminal-based and GUI operational modes.
                   </p>
                 </div>
 
