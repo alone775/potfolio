@@ -11,7 +11,6 @@ import {
   ShoppingCart, 
   Activity, 
   GraduationCap, 
-  ArrowUpRight,
   Github,
   ExternalLink,
   Code2,
@@ -56,7 +55,7 @@ const Tag = ({ children }: { children: React.ReactNode }) => (
 );
 
 // Reusable Project Card
-const ProjectCard = ({ title, icon: Icon, metric, problem, solution, tags, demoLink, gitLink }: any) => (
+const ProjectCard = ({ title, icon: Icon, metric, problem, solution, tags, demoLink, gitLink }: { title: string, icon: any, metric: string, problem: string, solution: string, tags: string[], demoLink: string, gitLink: string }) => (
   <BentoCard className="flex flex-col h-full">
     <div className="flex justify-between items-start mb-4">
       <div className="flex items-center gap-3">
