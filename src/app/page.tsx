@@ -52,13 +52,22 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
 );
 
 // Modular Bento Card Component
-const BentoCard = ({ className, children, href, id }: { className?: string, children: React.ReactNode, href?: string, id?: string }) => {
-  const content = (
-    <div id={id} className={`group relative bg-[#0a0a0a] border-2 border-zinc-900 rounded-3xl p-6 transition-all duration-200 ease-out hover:scale-[1.01] hover:border-blue-500 hover:bg-[#0f0f0f] flex flex-col overflow-hidden ${className}`}>
+const BentoCard = ({ className = "", children, href, id }: { className?: string, children: React.ReactNode, href?: string, id?: string }) => {
+  const cardClasses = `group relative bg-[#0a0a0a] border-2 border-zinc-900 rounded-3xl p-6 transition-all duration-200 ease-out hover:scale-[1.01] hover:border-blue-500 hover:bg-[#0f0f0f] flex flex-col overflow-hidden h-full ${className}`;
+  
+  if (href) {
+    return (
+      <Link href={href} id={id} className={`block outline-none ${cardClasses}`}>
+        {children}
+      </Link>
+    );
+  }
+  
+  return (
+    <div id={id} className={cardClasses}>
       {children}
     </div>
   );
-  return href ? <Link href={href} className="block outline-none h-full">{content}</Link> : <div className="h-full">{content}</div>;
 };
 
 // Modular Tag Component
