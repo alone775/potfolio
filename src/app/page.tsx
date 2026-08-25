@@ -284,7 +284,7 @@ export default function Home() {
                     <h5 className="text-lg font-black uppercase tracking-wider text-white mb-4">The Approach</h5>
                     <ul className="space-y-4 text-zinc-400 font-medium list-disc list-outside ml-5">
                       <li>Built a real-time booking engine so table availability updates instantly across all connected clients, removing the double-booking risk that comes with manual tracking</li>
-                      <li>Used Supabase's real-time subscriptions for live match-tracking, so scores and match status update on-screen without manual refresh — chosen over a custom WebSocket setup to ship faster while keeping latency low</li>
+                      <li>Used Supabase&apos;s real-time subscriptions for live match-tracking, so scores and match status update on-screen without manual refresh — chosen over a custom WebSocket setup to ship faster while keeping latency low</li>
                       <li>Built a tournament bracket module supporting multi-round elimination formats, auto-advancing winners and updating standings automatically</li>
                       <li>Added an analytics dashboard giving venue owners visibility into table utilization and activity trends</li>
                       <li>Kept booking logic and tournament logic as separate modules, making it easier to extend either system independently as requirements grow</li>
@@ -303,7 +303,7 @@ export default function Home() {
                       </p>
                     </section>
                     <section className="flex-1">
-                      <h5 className="text-lg font-black uppercase tracking-wider text-white mb-3">What's Next</h5>
+                      <h5 className="text-lg font-black uppercase tracking-wider text-white mb-3">What&apos;s Next</h5>
                       <ul className="space-y-2 text-zinc-500 font-medium text-sm list-disc list-outside ml-4">
                         <li>Payment integration for table bookings</li>
                         <li>SMS/notification system for match calls</li>
@@ -397,7 +397,7 @@ export default function Home() {
               <BentoCard className="p-8">
                 <Quote className="text-zinc-800 mb-4" size={40} />
                 <p className="text-zinc-300 font-medium leading-relaxed italic mb-6 text-lg">
-                  "Wasay delivered the project way ahead of schedule. The speed and quality of the architecture were incredible. Highly recommended for any complex full-stack needs."
+                  &quot;Wasay delivered the project way ahead of schedule. The speed and quality of the architecture were incredible. Highly recommended for any complex full-stack needs.&quot;
                 </p>
                 <div>
                   <h4 className="text-white font-bold uppercase tracking-wider">John Doe</h4>
@@ -409,7 +409,7 @@ export default function Home() {
               <BentoCard className="p-8">
                 <Quote className="text-zinc-800 mb-4" size={40} />
                 <p className="text-zinc-300 font-medium leading-relaxed italic mb-6 text-lg">
-                  "The AI automation tools he integrated completely transformed our daily operations. We've saved countless hours and the system runs flawlessly."
+                  &quot;The AI automation tools he integrated completely transformed our daily operations. We&apos;ve saved countless hours and the system runs flawlessly.&quot;
                 </p>
                 <div>
                   <h4 className="text-white font-bold uppercase tracking-wider">Jane Smith</h4>
@@ -425,7 +425,7 @@ export default function Home() {
           <BentoCard id="contact" className="md:col-span-4 p-8 md:p-12 scroll-mt-12">
             <div className="flex flex-col md:flex-row gap-12">
               <div className="flex-1">
-                <h2 className="text-4xl font-black text-white uppercase tracking-tight mb-4">Let's Build<br/>Something Great.</h2>
+                <h2 className="text-4xl font-black text-white uppercase tracking-tight mb-4">Let&apos;s Build<br/>Something Great.</h2>
                 <p className="text-zinc-400 font-medium leading-relaxed mb-8 max-w-sm">
                   Ready to accelerate your next project? Drop me a message below or connect with me on social media. 
                 </p>
