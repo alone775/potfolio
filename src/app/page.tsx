@@ -261,57 +261,103 @@ export default function Home() {
         </div>
 
         {/* Featured Case Study */}
-        <FadeIn>
-          <BentoCard className="md:col-span-4 p-8 md:p-12">
-            <div className="flex flex-col md:flex-row gap-12">
-              <div className="flex-1 space-y-6">
-                <div className="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 font-bold text-xs rounded-full border border-blue-500/20 uppercase tracking-widest">
-                  Featured Case Study
+        <div id="case-study" className="scroll-mt-12">
+          <FadeIn>
+            <h2 className="text-3xl font-black text-white uppercase tracking-widest mb-8 border-b-2 border-zinc-900 pb-4">Featured Case Study</h2>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <BentoCard className="md:col-span-4 p-8 md:p-12">
+              <div className="mb-10 border-b border-zinc-800 pb-8">
+                <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-3">CueTrack</h3>
+                <h4 className="text-xl md:text-2xl font-bold text-blue-500">Full-Stack Snooker Venue & Tournament Management Platform</h4>
+              </div>
+
+              <div className="flex flex-col lg:flex-row gap-12">
+                <div className="flex-1 space-y-10">
+                  <section>
+                    <h5 className="text-lg font-black uppercase tracking-wider text-white mb-3">The Problem</h5>
+                    <p className="text-zinc-400 font-medium leading-relaxed">
+                      Snooker venues and tournament organizers typically rely on manual, spreadsheet-based systems to manage table bookings, track live match scores, and run tournament brackets — leading to double-bookings, delayed score updates, and no easy way for players or spectators to follow tournament progress in real time.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h5 className="text-lg font-black uppercase tracking-wider text-white mb-4">The Approach</h5>
+                    <ul className="space-y-4 text-zinc-400 font-medium list-disc list-outside ml-5">
+                      <li>Built a real-time booking engine so table availability updates instantly across all connected clients, removing the double-booking risk that comes with manual tracking</li>
+                      <li>Used Supabase's real-time subscriptions for live match-tracking, so scores and match status update on-screen without manual refresh — chosen over a custom WebSocket setup to ship faster while keeping latency low</li>
+                      <li>Built a tournament bracket module supporting multi-round elimination formats, auto-advancing winners and updating standings automatically</li>
+                      <li>Added an analytics dashboard giving venue owners visibility into table utilization and activity trends</li>
+                      <li>Kept booking logic and tournament logic as separate modules, making it easier to extend either system independently as requirements grow</li>
+                      <li>Architected the frontend in Next.js for fast load times and SEO-friendly public tournament pages, with Supabase handling auth, database, and real-time sync</li>
+                    </ul>
+                  </section>
+
+                  <div className="flex flex-col sm:flex-row gap-8 pt-4 border-t border-zinc-900">
+                    <section className="flex-1">
+                      <div className="flex items-center gap-3 mb-3">
+                        <h5 className="text-lg font-black uppercase tracking-wider text-white">Status</h5>
+                        <span className="px-2.5 py-0.5 bg-green-500/10 text-green-400 font-bold text-[10px] rounded-full border border-green-500/20 tracking-widest">DEPLOYED</span>
+                      </div>
+                      <p className="text-zinc-400 font-medium leading-relaxed text-sm">
+                        Currently deployed and fully functional, built to handle real-time updates across unlimited connected clients. Actively seeking a pilot venue to onboard and validate with real-world usage and traffic.
+                      </p>
+                    </section>
+                    <section className="flex-1">
+                      <h5 className="text-lg font-black uppercase tracking-wider text-white mb-3">What's Next</h5>
+                      <ul className="space-y-2 text-zinc-500 font-medium text-sm list-disc list-outside ml-4">
+                        <li>Payment integration for table bookings</li>
+                        <li>SMS/notification system for match calls</li>
+                        <li>Multi-venue support for organizers running events across locations</li>
+                      </ul>
+                    </section>
+                  </div>
                 </div>
-                <h3 className="text-4xl font-black text-white uppercase tracking-tight">CueTrack Architecture</h3>
-                <p className="text-zinc-400 font-medium leading-relaxed">
-                  <strong className="text-zinc-200">The Problem:</strong> Snooker clubs needed a modernized approach to track tables, tournaments, and player stats in real-time. Existing solutions were clunky, outdated, and prone to severe synchronization issues during peak hours.
-                </p>
-                <div className="bg-green-500/5 border border-green-500/20 rounded-xl p-6">
-                  <h4 className="text-green-400 font-bold uppercase tracking-widest text-sm mb-2">The Impact</h4>
-                  <p className="text-zinc-300 font-medium">Deployed successfully to multiple local clubs, reducing booking overlap errors to absolute zero and saving club managers approximately 10 hours a week in administrative overhead.</p>
-                </div>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  <Tag>Next.js</Tag>
-                  <Tag>Supabase</Tag>
-                  <Tag>PostgreSQL</Tag>
-                  <Tag>WebSockets</Tag>
-                </div>
-                <div className="flex gap-4 pt-4">
-                  <a href="https://cuetrack.me" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-white bg-blue-600 hover:bg-blue-500 px-6 py-2.5 rounded-full transition-colors">
-                    View Live Site <ExternalLink size={16} />
-                  </a>
+
+                <div className="flex-1 space-y-10">
+                  <section className="bg-[#050505] rounded-2xl p-6 md:p-8 border border-zinc-800 shadow-[0_0_40px_rgba(59,130,246,0.03)]">
+                    <h5 className="text-xl font-black uppercase tracking-wider text-blue-500 mb-6 flex items-center gap-2">
+                      <Sparkles size={24} /> Design Decisions
+                    </h5>
+                    <ul className="space-y-6 text-zinc-300 font-medium">
+                      <li className="flex gap-4">
+                        <div className="mt-1 p-1.5 bg-blue-500/10 rounded-md shrink-0"><Database className="text-blue-500" size={16} /></div>
+                        <p><strong className="text-white">Supabase over a custom backend:</strong> prioritized speed of delivery and built-in real-time infrastructure over rolling a custom Node/WebSocket server — with a clear migration path if scale ever demands it</p>
+                      </li>
+                      <li className="flex gap-4">
+                        <div className="mt-1 p-1.5 bg-blue-500/10 rounded-md shrink-0"><LayoutTemplate className="text-blue-500" size={16} /></div>
+                        <p><strong className="text-white">Separated booking vs. bracket logic:</strong> avoided tightly coupling these systems so either can be modified or replaced without touching the other</p>
+                      </li>
+                      <li className="flex gap-4">
+                        <div className="mt-1 p-1.5 bg-blue-500/10 rounded-md shrink-0"><Code2 className="text-blue-500" size={16} /></div>
+                        <p><strong className="text-white">Public-facing pages for tournaments:</strong> built so spectators and players can follow live standings without needing an account, lowering the barrier to engagement</p>
+                      </li>
+                    </ul>
+                  </section>
+
+                  <section>
+                    <h5 className="text-sm font-black uppercase tracking-wider text-zinc-500 mb-4">Tech Stack</h5>
+                    <div className="flex flex-wrap gap-2">
+                      <Tag>Next.js</Tag>
+                      <Tag>Supabase</Tag>
+                      <Tag>PostgreSQL</Tag>
+                      <Tag>Real-time subscriptions</Tag>
+                    </div>
+                  </section>
+
+                  <section className="flex flex-wrap gap-4 pt-4">
+                    <a href="https://www.cuetrack.me/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-white bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-full transition-colors shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                      <ExternalLink size={16} /> View Live
+                    </a>
+                    <a href="https://github.com/alone775/quetrack" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-zinc-300 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 hover:text-white px-6 py-3 rounded-full transition-colors">
+                      <Github size={16} /> View Code
+                    </a>
+                  </section>
                 </div>
               </div>
-              <div className="flex-1 bg-[#050505] rounded-2xl p-6 md:p-8 border border-zinc-900">
-                <h4 className="text-white font-bold uppercase tracking-widest mb-6 border-b border-zinc-800 pb-4">Architecture Decisions</h4>
-                <ul className="space-y-5 text-sm text-zinc-400 font-medium">
-                  <li className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
-                    <p><strong className="text-zinc-200">SSR & Performance:</strong> Migrated to Next.js App Router for Server-Side Rendering (SSR) benefits and lightning-fast initial payload loads.</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
-                    <p><strong className="text-zinc-200">Real-time Data:</strong> Integrated Supabase for real-time WebSocket subscriptions on table timers, eliminating need for manual refreshes.</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
-                    <p><strong className="text-zinc-200">DevOps Pipeline:</strong> Deployed via Linode with custom GitHub Actions for automated, frictionless CI/CD pipelines.</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
-                    <p><strong className="text-zinc-200">Optimistic UI:</strong> Implemented optimistic UI updates on the frontend to ensure a zero-latency, native-app feel for managers.</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </BentoCard>
-        </FadeIn>
+            </BentoCard>
+          </FadeIn>
+        </div>
 
         {/* Services / What I Offer */}
         <div>
