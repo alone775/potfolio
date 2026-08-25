@@ -213,7 +213,7 @@ export default function Home() {
                 metric="Reduced manual booking errors by 40% & increased utilization."
                 problem="Traditional snooker clubs rely on paper tracking, leading to revenue leaks and scheduling conflicts."
                 solution="Built a real-time digital management system with automated timers and Elo ranking integration."
-                tags={["Next.js", "Supabase", "Linode", "GitHub Actions"]}
+                tags={["Next.js", "Supabase", "Vercel", "GitHub Actions"]}
                 demoLink="https://cuetrack.me"
                 gitLink="https://github.com/alone775"
               />
