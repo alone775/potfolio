@@ -1,202 +1,169 @@
-import Canvas3D from "@/components/Canvas3D";
-import ProjectCard from "@/components/ProjectCard";
-import { Mail, FileText, ChevronDown } from "lucide-react";
-import Link from "next/link";
+"use client";
+
+import React from "react";
 import Image from "next/image";
-import profilePic from "../../public/profile.jpg";
+import Link from "next/link";
+import profilePic from "../../public/original_photo.jpg";
+import { 
+  Cpu, 
+  ShieldCheck, 
+  ShoppingCart, 
+  Activity, 
+  GraduationCap, 
+  ArrowUpRight 
+} from "lucide-react";
 
-const GithubIcon = ({ size = 24 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-  </svg>
-);
+// Modular Bento Card Component
+const BentoCard = ({ className, children, href }: { className?: string, children: React.ReactNode, href?: string }) => {
+  const content = (
+    <div className={`group relative bg-[#0a0a0a] border-2 border-zinc-900 rounded-3xl p-6 transition-all duration-200 ease-out hover:scale-[1.01] hover:border-blue-500 hover:bg-[#0f0f0f] flex flex-col overflow-hidden ${className}`}>
+      {children}
+    </div>
+  );
 
-const LinkedinIcon = ({ size = 24 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
+  return href ? <Link href={href} className="block outline-none">{content}</Link> : content;
+};
+
+// Modular Tag Component
+const Tag = ({ children }: { children: React.ReactNode }) => (
+  <span className="bg-zinc-900 border border-zinc-800 text-zinc-300 px-3 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase">
+    {children}
+  </span>
 );
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-foreground relative selection:bg-primary/30">
-      <Canvas3D />
+    <main className="min-h-screen bg-black text-zinc-100 p-4 md:p-8 lg:p-12 font-sans selection:bg-blue-500/30">
+      <div className="max-w-6xl mx-auto">
+        
+        {/* Minimal Header */}
+        <header className="flex justify-between items-center mb-10 px-2">
+          <div className="text-xl font-extrabold tracking-tighter text-white">A.W. MINHAS</div>
+          <nav className="flex gap-6">
+            <Link href="/resume" className="text-sm font-bold text-zinc-500 hover:text-white transition-colors uppercase tracking-wider">Resume</Link>
+            <a href="mailto:wasayminhas775@gmail.com" className="text-sm font-bold text-zinc-500 hover:text-white transition-colors uppercase tracking-wider">Contact</a>
+          </nav>
+        </header>
 
-      {/* 
-        Scroll-driven animations container
-        The 'scroll-reveal' class is defined in globals.css using animation-timeline: view()
-      */}
-      
-      {/* HERO SECTION */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20">
-        <div className="max-w-4xl w-full mx-auto flex flex-col items-center text-center z-10 scroll-reveal">
-          <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-sm font-medium text-gray-300">
-            Available for new opportunities
-          </div>
+        {/* CSS Grid - Bento Box Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-auto md:auto-rows-[minmax(200px,auto)]">
           
-          <div className="mb-8 relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl shadow-primary/20">
-            <Image 
-              src={profilePic} 
-              alt="Abdul Wasay Minhas" 
-              fill 
-              className="object-cover hover:scale-105 transition-transform duration-500"
-              priority
-            />
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white to-gray-500">
-            Abdul Wasay Minhas
-          </h1>
-          
-          <h2 className="text-xl md:text-3xl text-primary font-medium mb-8 max-w-2xl">
-            Full Stack Engineer & AI Integrator
-          </h2>
-          
-          <p className="text-lg text-gray-400 max-w-2xl mb-12 leading-relaxed">
-            Bridging the gap between cutting-edge AI and practical software engineering. 
-            I specialize in leveraging AI agents and intelligent prompting to build scalable, 
-            high-performance web applications.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a 
-              href="#projects" 
-              className="px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-blue-600 transition-colors shadow-[0_0_20px_rgba(59,130,246,0.3)]"
-            >
-              View Work
-            </a>
+          {/* 1. HERO CARD (2x2) */}
+          <BentoCard className="md:col-span-2 md:row-span-2 justify-end p-8 md:p-10">
+            <div className="absolute top-8 right-8 w-20 h-20 rounded-full overflow-hidden border-2 border-zinc-800 hidden sm:block">
+              <Image 
+                src={profilePic} 
+                alt="Abdul Wasay Minhas" 
+                fill 
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+              />
+            </div>
             
-            <Link 
-              href="/resume" 
-              className="px-8 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md transition-colors flex items-center gap-2"
-            >
-              <FileText size={18} />
-              Resume
-            </Link>
-
-            <a 
-              href="mailto:wasayminhas775@gmail.com" 
-              className="px-8 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md transition-colors flex items-center gap-2"
-            >
-              <Mail size={18} />
-              Contact
-            </a>
-          </div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-500">
-          <ChevronDown size={32} />
-        </div>
-      </section>
-
-      {/* ABOUT SECTION */}
-      <section id="about" className="py-32 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto scroll-reveal">
-          <h2 className="text-3xl md:text-5xl font-bold mb-12 border-b border-white/10 pb-6 inline-block">
-            Background & Focus
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="glass-panel p-8 rounded-2xl">
-              <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                Currently pursuing my BS in Computer Science at NUML, following my foundational studies at Punjab Group of Colleges. 
-                I thrive on crafting visually striking, non-generic user experiences.
-              </p>
-              <p className="text-gray-300 leading-relaxed text-lg">
-                My ongoing explorations into Machine Learning and AI constantly push the boundaries of what's possible on the modern web, allowing me to build smarter, faster, and more intuitive platforms.
+            <div className="mt-20">
+              <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-3 text-white leading-[1.1]">
+                ABDUL WASAY
+              </h1>
+              <h2 className="text-xl md:text-2xl font-bold text-blue-500 mb-6 tracking-wide">
+                AI-Assisted Web Developer
+              </h2>
+              <p className="text-zinc-400 text-base md:text-lg max-w-md leading-relaxed font-medium">
+                Building complex, data-rich systems with high-velocity full-stack development. 
+                Bridging the gap between intelligent AI orchestration and practical software engineering.
               </p>
             </div>
+          </BentoCard>
 
-            <div className="glass-panel p-8 rounded-2xl flex flex-col justify-center gap-6">
-              <div>
-                <h3 className="text-xl font-bold mb-3 text-white">Core Tech Stack</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["Next.js", "React", "TypeScript", "Node.js", "MERN Stack", "C#", "Python"].map(skill => (
-                    <span key={skill} className="bg-primary/20 text-blue-200 border border-primary/30 px-3 py-1 rounded-full text-sm">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-bold mb-3 text-white">Specializations</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["AI Integrations", "Machine Learning", "3D Web Graphics", "Scalable Systems"].map(skill => (
-                    <span key={skill} className="bg-secondary/20 text-purple-200 border border-secondary/30 px-3 py-1 rounded-full text-sm">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROJECTS SECTION */}
-      <section id="projects" className="py-32 px-6 relative z-10">
-        <div className="max-w-6xl mx-auto scroll-reveal">
-          <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">
-            Featured Projects
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ProjectCard 
-              title="CueTrack"
-              role="Lead Developer"
-              description="A professional cue sports venue management platform. Features include global Elo rankings, real-time tournament tracking, active session monitoring, and deep club analytics."
-              link="https://cuetrack.me"
-              tags={["Next.js", "Tailwind CSS", "Scalable Backend", "Analytics"]}
-            />
+          {/* 2. TOOL ORCHESTRATION CARD (1x2) */}
+          <BentoCard className="md:col-span-1 md:row-span-2">
+            <div className="mb-6 text-blue-500"><Cpu size={32} strokeWidth={2.5} /></div>
+            <h3 className="text-xl font-black text-white mb-6 uppercase tracking-wider">Tool<br/>Orchestration</h3>
             
-            <ProjectCard 
-              title="ValidTrace"
-              role="Full Stack Engineer"
-              description="A modern verification and tracking system. Architected completely with TypeScript, implementing a scalable data-tracing backbone for reliability."
-              link="https://validtrace.vercel.app"
-              tags={["TypeScript", "React", "Verification", "Node.js"]}
-            />
+            <p className="text-sm text-zinc-500 font-semibold mb-4 leading-relaxed">
+              My core tech & AI stack for building scalable systems:
+            </p>
+            
+            <div className="flex flex-wrap gap-2 mt-auto">
+              <Tag>Cursor AI</Tag>
+              <Tag>Anti-Gravity IDE</Tag>
+              <Tag>Next.js</Tag>
+              <Tag>C++</Tag>
+              <Tag>Java</Tag>
+              <Tag>PHP</Tag>
+              <Tag>SQL</Tag>
+            </div>
+          </BentoCard>
 
-            <ProjectCard 
-              title="Inline Delivery System"
-              role="Software Engineer"
-              description="Engineered a robust delivery tracking system offering both Terminal-based and Graphical User Interface (GUI) operational modes for high flexibility."
-              link="https://github.com/alone775/inline-delivery-system-"
-              tags={["Java", "GUI", "CLI", "System Architecture"]}
-            />
-          </div>
+          {/* 3. BACKGROUND CARD (1x1) */}
+          <BentoCard className="md:col-span-1 md:row-span-1 justify-center">
+            <div className="flex items-center gap-3 mb-4 text-white">
+              <GraduationCap className="text-blue-500" size={24} strokeWidth={2.5} />
+              <h3 className="font-black uppercase tracking-wider">Background</h3>
+            </div>
+            <ul className="space-y-3 text-sm text-zinc-400 font-bold">
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-blue-500 mt-1.5 shrink-0" />
+                BSCS @ NUML
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-zinc-700 mt-1.5 shrink-0 group-hover:bg-blue-400 transition-colors" />
+                Freelance Web Dev
+              </li>
+            </ul>
+          </BentoCard>
+
+          {/* 4. SECURITY & AUTH CARD (1x1) */}
+          <BentoCard className="md:col-span-1 md:row-span-1 justify-center">
+            <div className="flex items-center gap-3 mb-4 text-white">
+              <ShieldCheck className="text-blue-500" size={24} strokeWidth={2.5} />
+              <h3 className="font-black uppercase tracking-wider">Security</h3>
+            </div>
+            <p className="text-sm text-zinc-400 font-bold leading-relaxed">
+              Designing robust, secure user authentication systems using PHP & MySQL.
+            </p>
+          </BentoCard>
+
+          {/* 5. FLAGSHIP CARD: CUETRACK (2x1) */}
+          <BentoCard href="https://cuetrack.me" className="md:col-span-2 md:row-span-1 flex flex-col justify-center">
+            <div className="flex justify-between items-start mb-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-blue-500/10 rounded-lg"><Activity className="text-blue-500" size={24} strokeWidth={2.5} /></div>
+                <h3 className="text-2xl font-black text-white uppercase tracking-wider">Cuetrack</h3>
+              </div>
+              <ArrowUpRight className="text-zinc-600 group-hover:text-blue-500 transition-colors" size={24} />
+            </div>
+            
+            <p className="text-zinc-400 text-sm font-bold mb-6 max-w-lg leading-relaxed">
+              Full-stack snooker venue & tournament management platform featuring real-time tracking and deep analytics.
+            </p>
+            
+            <div className="flex flex-wrap gap-2">
+              <Tag>Next.js</Tag>
+              <Tag>Supabase</Tag>
+              <Tag>Linode</Tag>
+              <Tag>GitHub Actions</Tag>
+            </div>
+          </BentoCard>
+
+          {/* 6. E-COMMERCE CARD (2x1) */}
+          <BentoCard className="md:col-span-2 md:row-span-1 flex flex-col justify-center">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-zinc-800 rounded-lg group-hover:bg-blue-500/10 transition-colors"><ShoppingCart className="text-zinc-400 group-hover:text-blue-500 transition-colors" size={24} strokeWidth={2.5} /></div>
+              <h3 className="text-2xl font-black text-white uppercase tracking-wider">TechGadgets</h3>
+            </div>
+            
+            <p className="text-zinc-400 text-sm font-bold mb-6 max-w-lg leading-relaxed">
+              Robust e-commerce platform built for high-performance transactional data processing and inventory management.
+            </p>
+            
+            <div className="flex flex-wrap gap-2">
+              <Tag>C#</Tag>
+              <Tag>SQL Server</Tag>
+              <Tag>.NET</Tag>
+            </div>
+          </BentoCard>
+
         </div>
-      </section>
-
-      {/* FOOTER / CONTACT */}
-      <footer className="py-20 px-6 border-t border-white/10 relative z-10 bg-black/50 backdrop-blur-xl">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 scroll-reveal">
-          
-          <div>
-            <h2 className="text-2xl font-bold mb-2">Let's build something amazing.</h2>
-            <p className="text-gray-400">Reach out for collaborations, inquiries, or just to say hi.</p>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <a href="https://github.com/alone775" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/10 hover:border-gray-400">
-              <GithubIcon size={24} />
-            </a>
-            <a href="https://www.linkedin.com/in/wasay-minhas-668386418" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/10 hover:border-blue-400">
-              <LinkedinIcon size={24} />
-            </a>
-            <a href="mailto:wasayminhas775@gmail.com" className="p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/10 hover:border-red-400">
-              <Mail size={24} />
-            </a>
-          </div>
-
-        </div>
-        <div className="text-center mt-16 text-gray-600 text-sm">
-          &copy; {new Date().getFullYear()} Abdul Wasay Minhas. All rights reserved.
-        </div>
-      </footer>
+      </div>
     </main>
   );
 }
