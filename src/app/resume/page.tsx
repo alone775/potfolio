@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import profilePic from "../../../public/original_photo.jpg";
-import { Mail, Printer } from "lucide-react";
+import { Printer } from "lucide-react";
 
 export default function ResumePage() {
   return (
